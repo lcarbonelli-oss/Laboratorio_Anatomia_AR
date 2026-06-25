@@ -176,12 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d639c53ab163b5a47b32c842c28258d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorInfoAR
-  panelInfo: {fileID: 1003139740}
-  textoTitulo: {fileID: 1141170129}
-  textoDescripcion: {fileID: 464310063}
-  imagenIcono: {fileID: 434400783}
-  spriteCorazon: {fileID: 21300000, guid: 488e14c15c4bd6743ab579da4c7019ba, type: 3}
-  spritePulmones: {fileID: 21300000, guid: 66797870ee3eb5545ae5bd92999d672c, type: 3}
+  TextoTituloOrgano: {fileID: 1141170129}
+  TextoDescripcion: {fileID: 464310063}
+  LaminaCorazon: {fileID: 1710994133}
+  LaminaPulmones: {fileID: 1024676489}
 --- !u!1 &391318056
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,10 +449,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1003139741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 80, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434400783
 MonoBehaviour:
@@ -626,9 +624,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1003139741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -75}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 180, y: -80}
   m_SizeDelta: {x: 900, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &585135991
@@ -746,6 +744,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fecaecdaa6431344a8befad5b1402f1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 585135994}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fecaecdaa6431344a8befad5b1402f1c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 585135995}
   m_SourcePrefab: {fileID: 100100000, guid: fecaecdaa6431344a8befad5b1402f1c, type: 3}
 --- !u!4 &585135992 stripped
 Transform:
@@ -773,6 +774,20 @@ MonoBehaviour:
   velocidadZoom: 8
   escalaMinima: 0.3
   escalaMaxima: 3.5
+--- !u!114 &585135995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585135993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43dca208151f7f4a95c40bf9289de1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacionOrganos
+  esCorazon: 0
+  esPulmon: 1
 --- !u!1 &1003139740
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,9 +824,9 @@ RectTransform:
   m_Father: {fileID: 391318060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 100}
 --- !u!114 &1003139742
 MonoBehaviour:
@@ -826,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13336597, g: 0.16006085, b: 0.254717, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -862,7 +877,7 @@ GameObject:
   - component: {fileID: 1024676493}
   - component: {fileID: 1024676492}
   - component: {fileID: 1024676491}
-  - component: {fileID: 1024676490}
+  - component: {fileID: 1024676494}
   m_Layer: 0
   m_Name: Target_Pulmones
   m_TagString: Untagged
@@ -870,25 +885,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1024676490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024676489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 1024676492}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: tarjeta_pulmones
-  mDatasetName: Vuforia/Base_Anatomia.xml
-  mCastedBehaviour: {fileID: 1024676492}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &1024676491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +979,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1024676490}
+  mPreview: {fileID: 1024676494}
 --- !u!4 &1024676493
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,6 +996,25 @@ Transform:
   - {fileID: 585135992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024676494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024676489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1024676492}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: tarjeta_pulmones
+  mDatasetName: Vuforia/Base_Anatomia.xml
+  mCastedBehaviour: {fileID: 1024676492}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1141170126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,9 +1047,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1003139741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -35}
   m_SizeDelta: {x: 800, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1141170128
@@ -1092,8 +1107,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1339,6 +1354,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3431e8e7dfc491f46aa4be841fc60d4c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1393266957}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3431e8e7dfc491f46aa4be841fc60d4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1393266958}
   m_SourcePrefab: {fileID: 100100000, guid: 3431e8e7dfc491f46aa4be841fc60d4c, type: 3}
 --- !u!4 &1393266955 stripped
 Transform:
@@ -1366,6 +1384,20 @@ MonoBehaviour:
   velocidadZoom: 8
   escalaMinima: 0.3
   escalaMaxima: 3.5
+--- !u!114 &1393266958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393266956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43dca208151f7f4a95c40bf9289de1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacionOrganos
+  esCorazon: 1
+  esPulmon: 0
 --- !u!1 &1710994133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,7 +1409,7 @@ GameObject:
   - component: {fileID: 1710994137}
   - component: {fileID: 1710994136}
   - component: {fileID: 1710994135}
-  - component: {fileID: 1710994134}
+  - component: {fileID: 1710994138}
   m_Layer: 0
   m_Name: Target_Corazon
   m_TagString: Untagged
@@ -1385,25 +1417,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1710994134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710994133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 1710994136}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: tarjeta_corazon
-  mDatasetName: Vuforia/Base_Anatomia.xml
-  mCastedBehaviour: {fileID: 1710994136}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &1710994135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,7 +1511,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1710994134}
+  mPreview: {fileID: 1710994138}
 --- !u!4 &1710994137
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,6 +1528,25 @@ Transform:
   - {fileID: 1393266955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710994138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710994133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1710994136}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: tarjeta_corazon
+  mDatasetName: Vuforia/Base_Anatomia.xml
+  mCastedBehaviour: {fileID: 1710994136}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1733252232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "MEN\xDA"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

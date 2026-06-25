@@ -1,42 +1,50 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI; // Esta línea es nueva, sirve para controlar imágenes
+using TMPro; // Necesario para controlar los textos de TextMeshPro
 
-public class ControladorInfoAR : MonoBehaviour
+public class ControladorEscenasLab : MonoBehaviour
 {
     [Header("Componentes de la Interfaz")]
-    public GameObject panelInfo;
-    public TextMeshProUGUI textoTitulo;
-    public TextMeshProUGUI textoDescripcion;
-    public Image imagenIcono; // Casilla nueva para el componente de imagen
+    public TextMeshProUGUI TextoTituloOrgano;
+    public TextMeshProUGUI TextoDescripcion;
 
-    [Header("Sprites de los Órganos")]
-    public Sprite spriteCorazon;
-    public Sprite spritePulmones;
+    [Header("Láminas de Vuforia (Image Targets)")]
+    public GameObject LaminaCorazon;
+    public GameObject LaminaPulmones;
 
     void Start()
     {
-        panelInfo.SetActive(false);
-    }
+        // 1. Leemos la memoria del juego
+        string sala = ClinicaDatos.salaSeleccionada;
 
-    public void MostrarCorazon()
-    {
-        panelInfo.SetActive(true);
-        imagenIcono.sprite = spriteCorazon; // Cambia el icono al corazón
-        textoTitulo.text = "SISTEMA CARDIOVASCULAR: EL CORAZÓN";
-        textoDescripcion.text = "Órgano muscular hueco que bombea sangre rica en oxígeno a todo el cuerpo. Consta de cuatro cavidades: dos aurículas y dos ventrículos. Su ciclo incluye sístole (contracción) y diástole (relajación).";
-    }
-
-    public void MostrarPulmones()
-    {
-        panelInfo.SetActive(true);
-        imagenIcono.sprite = spritePulmones; // Cambia el icono a los pulmones
-        textoTitulo.text = "SISTEMA RESPIRATORIO: LOS PULMONES";
-        textoDescripcion.text = "Órganos principales de la respiración encargados del intercambio de gases (hematosis). El pulmón derecho tiene tres lóbulos y el izquierdo dos. Absorben oxígeno y eliminan dióxido de carbono.";
-    }
-
-    public void OcultarPanel()
-    {
-        panelInfo.SetActive(false);
+        // 2. Si el usuario eligió la Sala de Cardiología
+        if (sala == "Corazon")
+        {
+            TextoTituloOrgano.text = "SISTEMA CARDIOVASCULAR";
+            TextoDescripcion.text = "El corazón es el órgano principal del sistema circulatorio. Funciona como una bomba hidráulica muscular que impulsa la sangre por todo el cuerpo para transportar oxígeno y nutrientes.";
+            
+            // ¡MAGIA!: Encendemos la lámina del corazón y APAGAMOS por completo la del pulmón
+            if (LaminaCorazon != null) LaminaCorazon.SetActive(true);
+            if (LaminaPulmones != null) LaminaPulmones.SetActive(false);
+        }
+        // 3. Si el usuario eligió la Sala de Neumología
+        else if (sala == "Pulmones")
+        {
+            TextoTituloOrgano.text = "SISTEMA RESPIRATORIO";
+            TextoDescripcion.text = "Los pulmones son los órganos en los cuales se realiza la hematosis o intercambio gaseoso. Permiten captar el oxígeno del aire y eliminar el dióxido de carbono del cuerpo.";
+            
+            // ¡MAGIA!: Apagamos la lámina del corazón y ENCENDEMOS la del pulmón
+            if (LaminaCorazon != null) LaminaCorazon.SetActive(false);
+            if (LaminaPulmones != null) LaminaPulmones.SetActive(true);
+        }
+        // 4. Caso de emergencia si entras directo a la escena
+        else
+        {
+            TextoTituloOrgano.text = "CÁMARA DE ESCANEO AR";
+            TextoDescripcion.text = "Por favor, regresa al menú principal para seleccionar una sala de especialidad médica específica.";
+            
+            // Por seguridad apagamos ambos hasta que elija una sala
+            if (LaminaCorazon != null) LaminaCorazon.SetActive(false);
+            if (LaminaPulmones != null) LaminaPulmones.SetActive(false);
+        }
     }
 }

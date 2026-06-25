@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/01_Escenas/MenuPrincipal.unity
     guid: f42bf82171aa60246af54754cddcd981
   - enabled: 1
+    path: Assets/01_Escenas/02_SeleccionSalas.unity
+    guid: 7d386756c39158d42acfc9e35a537339
+  - enabled: 1
     path: Assets/01_Escenas/LaboratorioAnatomia.unity
     guid: 388715b3ce448a649ad2538378fd529d
   m_configObjects:
