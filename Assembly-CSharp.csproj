@@ -53,6 +53,7 @@
     <Compile Include="Assets\02_Scripts\ControladorMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\02_Scripts\CaminarClinica.cs" />
     <Compile Include="Assets\02_Scripts\AnimacionOrganos.cs" />
     <Compile Include="Assets\02_Scripts\InteraccionEspecializada.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
